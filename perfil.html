@@ -52,9 +52,10 @@
           role: "Full Stack Developer",
           avatar: "https://robohash.org/luis",
           joinDate: "2023",
+          PTS: 2215,
           stats: {
-            contributions: 856,
-            "proyectos completados": 12,
+            Contributions: 856,
+            "Proyectos completados": 12,
           },
           badges: [
             { name: "Pro Developer", icon: "🏆" },
@@ -112,7 +113,10 @@
                   <p class="text-sm text-gray-500">Miembro desde ${
                     profileState.user.joinDate
                   }</p>
-                </div>
+                  <p
+                  class="text-purple-400 mt-4 bg-purple-500/10 px-3 py-1 rounded-full"
+                  >${profileState.user.PTS} PTS</p>
+                  </div>
 
                 <div class="grid grid-cols-2 gap-4 text-center">
                   ${Object.entries(profileState.user.stats)
