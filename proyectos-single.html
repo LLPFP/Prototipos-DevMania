@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevMania - DevAssistant AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              "fade-in":
+                "fadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
+              gradient: "gradient 8s ease infinite",
+              float: "float 6s ease-in-out infinite",
+              neon: "neonPulse 3s ease infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: 0, transform: "translateY(20px)" },
+                "100%": { opacity: 1, transform: "translateY(0)" },
+              },
+              gradient: {
+                "0%, 100%": { "background-position": "0% 50%" },
+                "50%": { "background-position": "100% 50%" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+              neonPulse: {
+                "0%, 100%": {
+                  filter: "drop-shadow(0 0 5px rgba(96,165,250,0.8))",
+                },
+                "50%": { filter: "drop-shadow(0 0 20px rgba(96,165,250,0.4))" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-900 text-white font-sans">
+    <header
+      class="sticky top-0 bg-gray-900/95 backdrop-blur-xl border-b border-gray-700 z-50 shadow-2xl">
+      <!-- Header consistente -->
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+      <!-- Encabezado del proyecto -->
+      <section class="mb-16 text-center relative">
+        <div class="max-w-4xl mx-auto">
+          <div class="animate-float">
+            <div
+              class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 w-64 h-64 blur-[120px] mx-auto rounded-full absolute inset-x-0 -top-32"></div>
+            <h1
+              class="text-6xl font-black bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-6">
+              DevAssistant AI
+            </h1>
+          </div>
+          <p class="text-2xl text-gray-300 mb-8 leading-relaxed">
+            Revolucionando el desarrollo con inteligencia artificial integrada
+          </p>
+          <div class="flex justify-center gap-4 mb-12">
+            <a
+              href="#"
+              class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl font-semibold hover:opacity-90 transition-opacity flex items-center gap-2">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Ver Demo
+            </a>
+            <a
+              href="#"
+              class="px-8 py-4 border border-gray-700 rounded-2xl font-semibold hover:bg-gray-800/50 transition-colors flex items-center gap-2">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clip-rule="evenodd" />
+              </svg>
+              GitHub
+            </a>
+          </div>
+          <div class="inline-flex flex-wrap gap-3">
+            <span
+              class="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full border border-blue-400/30 flex items-center gap-2">
+              <span class="relative flex h-3 w-3">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span
+                  class="relative inline-flex rounded-full h-3 w-3 bg-blue-400"></span>
+              </span>
+              Activo
+            </span>
+            <span
+              class="px-4 py-2 bg-green-500/20 text-green-400 rounded-full border border-green-400/30"
+              >AI</span
+            >
+            <span
+              class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full border border-purple-400/30"
+              >Open Source</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Hero -->
+      <section class="mb-24 relative group">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-4xl transform group-hover:rotate-1 transition-transform duration-500"></div>
+        <div
+          class="relative bg-gray-900 rounded-4xl border border-gray-700 overflow-hidden">
+          <div
+            class="h-[600px] bg-gradient-to-br from-blue-500/10 to-purple-500/10 flex items-center justify-center">
+            <div class="text-center space-y-6">
+              <div class="animate-neon">
+                <svg
+                  class="w-24 h-24 mx-auto text-blue-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h2 class="text-4xl font-bold">Interfaz Intuitiva</h2>
+              <p class="text-gray-400 max-w-2xl mx-auto">
+                Panel de control con análisis en tiempo real y sugerencias
+                contextuales
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Características principales -->
+      <section class="mb-24">
+        <h2 class="text-4xl font-bold text-center mb-16">
+          Características Clave
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="p-8 bg-gray-800/50 rounded-3xl border border-gray-700 hover:border-blue-400/30 transition-all group">
+            <div
+              class="w-16 h-16 mb-6 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center">
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-semibold mb-4">Debugging Inteligente</h3>
+            <p class="text-gray-400">
+              Detección automática de errores con soluciones contextuales
+            </p>
+          </div>
+          <!-- Más características... -->
+        </div>
+      </section>
+
+      <!-- Instalación y Uso -->
+      <section class="mb-24">
+        <div class="bg-gray-900 rounded-3xl p-1 overflow-hidden">
+          <div class="bg-gray-800/50 rounded-2xl p-8">
+            <h2 class="text-3xl font-bold mb-8">Comienza en 3 pasos</h2>
+            <div class="grid lg:grid-cols-2 gap-8">
+              <div class="space-y-8">
+                <div class="flex gap-6">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center">
+                      1
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold mb-2">Instalación</h3>
+                    <pre
+                      class="bg-gray-900 p-4 rounded-xl overflow-x-auto"><code class="language-bash">npm install devassistant-ai</code></pre>
+                  </div>
+                </div>
+                <!-- Más pasos... -->
+              </div>
+              <div class="bg-gray-900 rounded-xl p-6">
+                <h3 class="text-xl font-semibold mb-4">Configuración básica</h3>
+                <pre class="text-sm"><code class="language-javascript">
+import DevAssistant from 'devassistant-ai';
+
+const assistant = new DevAssistant({
+  apiKey: 'TU_API_KEY',
+  context: 'full-stack',
+  language: 'es'
+});
+
+assistant.init().then(() => {
+  console.log('¡Asistente listo!');
+});
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Estadísticas -->
+      <section class="mb-24">
+        <div
+          class="bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl p-8">
+          <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div class="p-8">
+              <div
+                class="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-2">
+                10k+
+              </div>
+              <div class="text-gray-400">Instalaciones diarias</div>
+            </div>
+            <!-- Más stats... -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="border-t border-gray-800 mt-24 bg-gradient-to-b from-gray-900 to-gray-900/50">
+      <!-- Footer consistente -->
+    </footer>
+
+    <script>
+      // Animaciones personalizadas
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px",
+      };
+
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll("[data-fade]").forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+        fadeObserver.observe(el);
+      });
+    </script>
+  </body>
+</html>

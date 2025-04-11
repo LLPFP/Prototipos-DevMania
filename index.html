@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevMania - Comunidad de Desarrollo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              "fade-in": "fadeIn 0.5s ease-in forwards",
+              "ping-small": "ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite",
+              float: "float 3s ease-in-out infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: 0, transform: "translateY(20px)" },
+                "100%": { opacity: 1, transform: "translateY(0)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      .background-pattern {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        z-index: -1;
+        background-color: #111827;
+        background-image: url("./images/cubes.png");
+        background-repeat: repeat;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white font-sans min-h-screen">
+    <div class="absolute inset-0 background-pattern"></div>
+    <main
+      class="relative min-h-screen flex flex-col items-center justify-center p-8">
+      <div class="max-w-6xl mx-auto text-center space-y-8 animate-fade-in">
+        <div class="flex justify-center mb-8">
+          <svg
+            class="w-32 h-32 animate-float"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm8 24h-4V16l4-8v16zM12 16l-4 8H4V8l4 8zm8-4l4 8V8l-4 8z"
+              fill="url(#gradient)" />
+            <defs>
+              <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#60a5fa" />
+                <stop offset="100%" stop-color="#c084fc" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <h1
+          class="text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent font-['Poppins']">
+          Bienvenido a DevMania
+        </h1>
+
+        <p class="text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          Tu comunidad de desarrollo donde podrás aprender, compartir y crecer
+          junto a otros desarrolladores apasionados por la tecnología.
+          <span class="block mt-4 text-blue-400" href="portal.html"
+            >¡Únete a DevMania!</span
+          >
+        </p>
+
+        <div class="mt-16 pt-16 border-t border-gray-300">
+          <h2 class="text-3xl font-bold mb-8">Tecnologías Destacadas</h2>
+          <div class="flex flex-wrap justify-center gap-6">
+            <div class="tech-badge hover:scale-110 transition-transform">
+              <span class="mr-2">⚛️</span>React
+            </div>
+            <div class="tech-badge hover:scale-110 transition-transform">
+              <span class="mr-2">🟢</span>Node.js
+            </div>
+            <div class="tech-badge hover:scale-110 transition-transform">
+              <span class="mr-2">🐍</span>Python
+            </div>
+            <div class="tech-badge hover:scale-110 transition-transform">
+              <span class="mr-2">▲</span>Next.js
+            </div>
+            <div class="tech-badge hover:scale-110 transition-transform">
+              <span class="mr-2">📘</span>TypeScript
+            </div>
+            <div class="tech-badge hover:scale-110 transition-transform">
+              <span class="mr-2">🐳</span>Docker
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          <div
+            class="bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700/50 hover:transform hover:scale-105 transition-all duration-300 shadow-xl">
+            <div class="text-blue-400 text-5xl mb-4 animate-bounce">🚀</div>
+            <h3 class="text-2xl font-bold mb-4 text-blue-300">Aprende</h3>
+            <p class="text-gray-400">
+              Accede a cursos, tutoriales y recursos actualizados sobre las
+              últimas tecnologías.
+            </p>
+          </div>
+
+          <div
+            class="bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700/50 hover:transform hover:scale-105 transition-all duration-300 shadow-xl">
+            <div class="text-purple-400 text-5xl mb-4 animate-bounce">👥</div>
+            <h3 class="text-2xl font-bold mb-4 text-purple-300">Conecta</h3>
+            <p class="text-gray-400">
+              Únete a una comunidad activa de desarrolladores, participa en
+              eventos y expande tu red profesional.
+            </p>
+          </div>
+
+          <div
+            class="bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700/50 hover:transform hover:scale-105 transition-all duration-300 shadow-xl">
+            <div class="text-pink-400 text-5xl mb-4 animate-bounce">💡</div>
+            <h3 class="text-2xl font-bold mb-4 text-pink-300">Comparte</h3>
+            <p class="text-gray-400">
+              Colabora en proyectos reales, comparte tus conocimientos y
+              construye un portafolio impresionante junto a la comunidad.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="mt-20 hover:transform hover:scale-105 transition-all duration-300">
+          <div class="max-w-2xl mx-auto text-center">
+            <div class="text-blue-400 text-6xl mb-6">🎯</div>
+            <h3
+              class="text-3xl font-bold mb-6 text-blue-300 hover:text-blue-200 tracking-wide animate-fade-in">
+              Misión
+            </h3>
+            <p
+              class="text-gray-400 hover:text-gray-300 text-lg leading-relaxed animate-slide-up">
+              Impulsar el desarrollo tecnológico a través de soluciones
+              innovadoras y sostenibles que marquen la diferencia en la
+              industria y la sociedad.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-16 flex flex-col items-center space-y-4">
+          <a
+            href="/portal.html"
+            class="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full text-xl font-semibold hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
+            Explorar la comunidad
+            <svg
+              class="w-6 h-6 ml-2 group-hover:translate-x-2 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <span class="text-gray-400">¡Únete ahora!</span>
+        </div>
+
+        <div class="mt-16 pt-16 border-t border-gray-400">
+          <h2 class="text-3xl font-bold mb-8">Próximos Eventos</h2>
+          <div class="space-y-6">
+            <div
+              class="p-6 bg-gray-800 rounded-xl flex items-center justify-between">
+              <div>
+                <h3 class="text-xl font-bold mb-2">Hackathon Virtual 2024</h3>
+                <p class="text-gray-400">
+                  48 horas de programación, innovación y premios increíbles
+                </p>
+              </div>
+              <div class="text-blue-500">Próximamente</div>
+            </div>
+            <div
+              class="p-6 bg-gray-800 rounded-xl flex items-center justify-between">
+              <div>
+                <h3 class="text-xl font-bold mb-2">
+                  Workshop: Introducción a IA
+                </h3>
+                <p class="text-gray-400">
+                  Aprende los fundamentos de la Inteligencia Artificial
+                </p>
+              </div>
+              <div class="text-blue-500">En 2 semanas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <style>
+      .tech-badge {
+        padding: 0.5rem 1.5rem;
+        background-color: rgba(31, 41, 55, 0.5);
+        border-radius: 9999px;
+        color: rgb(209, 213, 219);
+        border: 1px solid rgba(55, 65, 81, 0.5);
+        transition: all 300ms;
+      }
+
+      .tech-badge:hover {
+        border-color: rgba(59, 130, 246, 0.5);
+        color: rgb(96, 165, 250);
+      }
+    </style>
+  </body>
+</html>

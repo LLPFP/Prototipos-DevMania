@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevMania - Noticias</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              "fade-in": "fadeIn 0.5s ease-in forwards",
+              "ping-small": "ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: 0, transform: "translateY(20px)" },
+                "100%": { opacity: 1, transform: "translateY(0)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-900 text-white font-sans">
+    <header
+      class="sticky top-0 bg-gray-900/80 backdrop-blur-sm border-b border-gray-700 z-50">
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-8">
+          <a href="#" class="flex items-center space-x-2">
+            <svg
+              class="w-8 h-8"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16 0C7.163 0 0 7.163 0 16c0 8.836 7.163 16 16 16 8.836 0 16-7.164 16-16 0-8.837-7.164-16-16-16zm0 4.915a11.085 11.085 0 110 22.17 11.085 11.085 0 010-22.17z"
+                fill="url(#gradient)" />
+              <defs>
+                <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#60a5fa" />
+                  <stop offset="100%" stop-color="#c084fc" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <span
+              class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+              >DevMania</span
+            >
+          </a>
+          <ul class="hidden md:flex space-x-8">
+            <li>
+              <a href="#noticias" class="hover:text-blue-400 transition-colors"
+                >Noticias</a
+              >
+            </li>
+            <li>
+              <a href="#proyectos" class="hover:text-blue-400 transition-colors"
+                >Proyectos</a
+              >
+            </li>
+            <li>
+              <a href="#comunidad" class="hover:text-blue-400 transition-colors"
+                >Comunidad</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex items-center space-x-6">
+          <button
+            class="relative p-2 hover:bg-gray-700 rounded-full transition-colors">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+            <span
+              class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full animate-ping-small"></span>
+            <span
+              class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+          </button>
+
+          <div class="relative group">
+            <button
+              class="flex items-center space-x-2 hover:bg-gray-700 px-3 py-2 rounded-lg transition-colors">
+              <div
+                class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-400 to-purple-500"></div>
+              <span class="hidden md:inline">midudev</span>
+              <svg
+                class="w-4 h-4 transform group-hover:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <div
+              class="absolute right-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-xl py-2 hidden group-hover:block hover:block">
+              <a href="#" class="block px-4 py-2 hover:bg-gray-700">Perfil</a>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-700"
+                >Configuración</a
+              >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-700 text-red-400"
+                >Cerrar sesión</a
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+      <section id="noticias" class="mb-20 scroll-mt-20">
+        <h2
+          class="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          Últimas Noticias Tech
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Noticia 1 -->
+          <article
+            class="group bg-gray-800 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div
+              class="h-48 bg-gray-700 rounded-lg mb-4 overflow-hidden relative">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-purple-900/50"></div>
+              <span
+                class="absolute top-2 left-2 px-3 py-1 bg-gray-900/80 rounded-full text-sm"
+                >Inteligencia Artificial</span
+              >
+            </div>
+            <h3 class="text-xl font-semibold mb-2">
+              GPT-5: OpenAI anuncia su nuevo modelo
+            </h3>
+            <p class="text-gray-400 mb-4">
+              Revolucionarias mejoras en comprensión contextual y reducción de
+              alucinaciones...
+            </p>
+            <div class="flex items-center justify-between text-sm">
+              <div class="flex items-center space-x-2">
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="text-gray-500">Hace 2h</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <span class="text-gray-500">45</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Noticia 2 -->
+          <article
+            class="group bg-gray-800 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div
+              class="h-48 bg-gray-700 rounded-lg mb-4 overflow-hidden relative">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-blue-900/50"></div>
+              <span
+                class="absolute top-2 left-2 px-3 py-1 bg-gray-900/80 rounded-full text-sm"
+                >Seguridad</span
+              >
+            </div>
+            <h3 class="text-xl font-semibold mb-2">
+              Nuevas vulnerabilidades críticas en Node.js
+            </h3>
+            <p class="text-gray-400 mb-4">
+              Actualización de emergencia para las versiones 18 y 20 del
+              runtime...
+            </p>
+            <div class="flex items-center justify-between text-sm">
+              <div class="flex items-center space-x-2">
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="text-gray-500">Ayer</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <span class="text-gray-500">28</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Noticia 3 -->
+          <article
+            class="group bg-gray-800 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div
+              class="h-48 bg-gray-700 rounded-lg mb-4 overflow-hidden relative">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-purple-900/50"></div>
+              <span
+                class="absolute top-2 left-2 px-3 py-1 bg-gray-900/80 rounded-full text-sm"
+                >Web3</span
+              >
+            </div>
+            <h3 class="text-xl font-semibold mb-2">
+              Ethereum completa la transición a Proof-of-Stake
+            </h3>
+            <p class="text-gray-400 mb-4">
+              Reducción del 99% en consumo energético de la red principal...
+            </p>
+            <div class="flex items-center justify-between text-sm">
+              <div class="flex items-center space-x-2">
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="text-gray-500">5h</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <span class="text-gray-500">63</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Noticia 4 -->
+          <article
+            class="group bg-gray-800 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div
+              class="h-48 bg-gray-700 rounded-lg mb-4 overflow-hidden relative">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-blue-900/50"></div>
+              <span
+                class="absolute top-2 left-2 px-3 py-1 bg-gray-900/80 rounded-full text-sm"
+                >Frontend</span
+              >
+            </div>
+            <h3 class="text-xl font-semibold mb-2">
+              React 19: Nuevo compilador experimental
+            </h3>
+            <p class="text-gray-400 mb-4">
+              Mejoras en rendimiento y simplificación de hooks...
+            </p>
+            <div class="flex items-center justify-between text-sm">
+              <div class="flex items-center space-x-2">
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="text-gray-500">3 días</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <span class="text-gray-500">92</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Noticia 5 -->
+          <article
+            class="group bg-gray-800 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div
+              class="h-48 bg-gray-700 rounded-lg mb-4 overflow-hidden relative">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-purple-900/50"></div>
+              <span
+                class="absolute top-2 left-2 px-3 py-1 bg-gray-900/80 rounded-full text-sm"
+                >DevOps</span
+              >
+            </div>
+            <h3 class="text-xl font-semibold mb-2">
+              Kubernetes 1.30: Nuevas características de autoescalado
+            </h3>
+            <p class="text-gray-400 mb-4">
+              Mejoras en la gestión de clusters y recursos...
+            </p>
+            <div class="flex items-center justify-between text-sm">
+              <div class="flex items-center space-x-2">
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="text-gray-500">1 semana</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <span class="text-gray-500">57</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Noticia 6 -->
+          <article
+            class="group bg-gray-800 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div
+              class="h-48 bg-gray-700 rounded-lg mb-4 overflow-hidden relative">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-blue-900/50"></div>
+              <span
+                class="absolute top-2 left-2 px-3 py-1 bg-gray-900/80 rounded-full text-sm"
+                >Mobile</span
+              >
+            </div>
+            <h3 class="text-xl font-semibold mb-2">
+              Flutter 4: Soporte nativo para Foldables
+            </h3>
+            <p class="text-gray-400 mb-4">
+              Nuevas APIs para adaptar aplicaciones a dispositivos plegables...
+            </p>
+            <div class="flex items-center justify-between text-sm">
+              <div class="flex items-center space-x-2">
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="text-gray-500">4h</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <span class="text-gray-500">31</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-gray-800 mt-20 bg-gray-900/50">
+      <div class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Sección Logo y redes -->
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+              <svg
+                class="w-8 h-8"
+                viewBox="0 0 64 64"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M32 0C14.326 0 0 14.326 0 32s14.326 32 32 32 32-14.326 32-32S49.674 0 32 0zm16 48h-8V32l8-16v32zM24 32l-8 16H8V16l8 16zm16-8l8 16V16l-8 16z"
+                  fill="url(#logoGradient)" />
+                <defs>
+                  <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#60a5fa" />
+                    <stop offset="100%" stop-color="#c084fc" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span
+                class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+                >DevMania</span
+              >
+            </div>
+            <p class="text-gray-400 text-sm">
+              Comunidad de desarrollo y tecnología
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C20.417 1.279 19.748.865 18.96.56c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7-4c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C20.417 1.279 19.748.865 18.96.56c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7-4c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Enlaces rápidos -->
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold text-blue-400">Recursos</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Documentación</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Tutoriales</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Foros</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Legal -->
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold text-purple-400">Legal</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Términos de uso</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Política de privacidad</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Cookies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Licencias</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Nueva sección: Soporte y Comunidad -->
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold text-blue-400">Comunidad</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Soporte Técnico</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Guías de Contribución</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Eventos</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >GitHub Oficial</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Roadmap</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div class="text-gray-400 text-sm">
+              <span class="block md:inline-block mb-2 md:mb-0"
+                >¿Necesitas ayuda?
+              </span>
+              <a
+                href="mailto:soporte@devmania.com"
+                class="text-blue-400 hover:text-blue-300 ml-0 md:ml-2"
+                >soporte@devmania.com</a
+              >
+            </div>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition-colors"
+                >Estado del Servicio</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition-colors"
+                >Reportar Bug</a
+              >
+            </div>
+          </div>
+          <p class="text-gray-500 text-xs mt-4">
+            &copy; 2025 DevMania. Todos los derechos reservados. Hecho con ❤️
+            por desarrolladores
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Animación al hacer scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animation = `fadeIn 0.5s ease-in forwards`;
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll("article").forEach((article) => {
+        observer.observe(article);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevMania - Perfil de Usuario</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              "fade-in": "fadeIn 0.3s ease-in forwards",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: 0 },
+                "100%": { opacity: 1 },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body
+    class="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white font-['Poppins'] min-h-screen">
+    <style>
+      .background-pattern {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        z-index: -1;
+        background-color: #111827;
+        background-image: url("./images/cubes.png");
+        background-repeat: repeat;
+        pointer-events: none;
+      }
+    </style>
+    <div class="background-pattern"></div>
+    <div id="profile"></div>
+    <script>
+      const profileState = {
+        user: {
+          name: "Luis Lopez",
+          role: "Full Stack Developer",
+          avatar: "https://robohash.org/luis",
+          joinDate: "2023",
+          stats: {
+            contributions: 856,
+            "proyectos completados": 12,
+          },
+          badges: [
+            { name: "Pro Developer", icon: "🏆" },
+            { name: "Top Contributor", icon: "⭐" },
+            { name: "Community Leader", icon: "👑" },
+          ],
+          technologies: [
+            { name: "React", icon: "⚛️" },
+            { name: "Node.js", icon: "🟢" },
+            { name: "TypeScript", icon: "📘" },
+            { name: "MongoDB", icon: "🍃" },
+            { name: "Docker", icon: "🐳" },
+          ],
+          activity: [
+            {
+              type: "contribution",
+              description: "Nuevo PR en DevAssistant AI",
+              date: "2024-01-15",
+            },
+            {
+              type: "project",
+              description: "Lanzó CodeVision v2.0",
+              date: "2024-01-10",
+            },
+            {
+              type: "achievement",
+              description: "Obtuvo badge Top Contributor",
+              date: "2024-01-05",
+            },
+          ],
+        },
+      };
+
+      const renderProfile = () => {
+        const profile = document.getElementById("profile");
+        if (!profile) return;
+
+        profile.innerHTML = `
+        <div class="container mx-auto px-6 py-12 relative">
+          <div class="bg-gray-800/30 rounded-3xl p-8 backdrop-blur-sm border border-gray-700/50 shadow-xl hover:border-gray-600/50 transition-all duration-300 animate-fade-in">
+            <div class="flex flex-col lg:flex-row gap-12">
+              <aside class="lg:w-1/3 space-y-8 animate-fade-in">
+                <div class="text-center">
+                  <div class="relative inline-block">
+                    <img src="${profileState.user.avatar}" alt="${
+          profileState.user.name
+        }" 
+                         class="w-32 h-32 rounded-full border-4 border-blue-500/30 hover:border-purple-500/30 transition-colors duration-300">
+                    <div class="absolute bottom-0 right-5 bg-green-500 w-6 h-6 rounded-full border-4 border-gray-800"></div>
+                  </div>
+                  <h1 class="text-2xl font-bold mt-4 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">${
+                    profileState.user.name
+                  }</h1>
+                  <p class="text-gray-400">${profileState.user.role}</p>
+                  <p class="text-sm text-gray-500">Miembro desde ${
+                    profileState.user.joinDate
+                  }</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 text-center">
+                  ${Object.entries(profileState.user.stats)
+                    .map(
+                      ([key, value]) => `
+                    <div class="bg-gray-700/20 p-4 rounded-xl hover:bg-gray-700/30 transition-all duration-300">
+                      <div class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">${value}</div>
+                      <div class="text-sm text-gray-400">${key}</div>
+                    </div>
+                  `
+                    )
+                    .join("")}
+                </div>
+
+                <div>
+                  <h3 class="text-lg font-semibold mb-4 text-blue-300">Tecnologías</h3>
+                  <div class="flex flex-wrap gap-2">
+                    ${profileState.user.technologies
+                      .map(
+                        (tech) => `
+                      <div class="tech-badge hover:scale-110 transition-transform">
+                        <span class="mr-2">${tech.icon}</span>
+                        <span>${tech.name}</span>
+                      </div>
+                    `
+                      )
+                      .join("")}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 class="text-lg font-semibold mb-4 text-blue-300">Badges</h3>
+                  <div class="flex flex-wrap gap-2">
+                    ${profileState.user.badges
+                      .map(
+                        (badge) => `
+                      <div class="px-3 py-1 bg-gray-700/20 rounded-full text-sm flex items-center gap-2 hover:bg-gray-700/30 transition-all duration-300">
+                        <span>${badge.icon}</span>
+                        <span>${badge.name}</span>
+                      </div>
+                    `
+                      )
+                      .join("")}
+                  </div>
+                </div>
+              </aside>
+
+              <main class="lg:w-2/3 space-y-8 animate-fade-in">
+                
+
+                <section>
+                  <h2 class="text-2xl font-bold mb-6 text-blue-300">Actividad Reciente</h2>
+                  <div class="space-y-4">
+                    ${profileState.user.activity
+                      .map(
+                        (item) => `
+                      <div class="flex items-center gap-4 p-4 bg-gray-700/20 rounded-xl hover:bg-gray-700/30 hover:transform hover:scale-105 transition-all duration-300">
+                        <div class="w-12 h-12 flex-shrink-0 bg-gray-600/50 rounded-xl flex items-center justify-center">
+                          ${getActivityIcon(item.type)}
+                        </div>
+                        <div>
+                          <p class="font-medium">${item.description}</p>
+                          <p class="text-sm text-gray-400">${formatDate(
+                            item.date
+                          )}</p>
+                        </div>
+                      </div>
+                    `
+                      )
+                      .join("")}
+                  </div>
+                </section>             
+                
+                                    
+                </main>
+            </div>
+          </div>
+        </div>
+      `;
+      };
+
+      const getActivityIcon = (type) => {
+        const icons = {
+          contribution: "🔨",
+          project: "📱",
+          achievement: "🏆",
+        };
+        return icons[type] || "📋";
+      };
+
+      const formatDate = (dateString) => {
+        return new Date(dateString).toLocaleDateString("es-ES", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderProfile();
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-fade-in");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll("[data-animate]").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
